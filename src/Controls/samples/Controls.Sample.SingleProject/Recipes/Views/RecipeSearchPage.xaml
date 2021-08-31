@@ -32,6 +32,7 @@
                     <!--<Frame CornerRadius="15" HasShadow="False" IsClippedToBounds="True"
                             AutomationProperties.IsInAccessibleTree="True"
                             AutomationProperties.HelpText="{Binding Recipe.RecipeName}">-->
+
                     <Grid RowDefinitions="*, Auto" Padding="0,0,0,20" HeightRequest="220" SemanticProperties.Description="{Binding Recipe.RecipeName}">
 
                         <!--
