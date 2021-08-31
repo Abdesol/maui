@@ -10,10 +10,10 @@ namespace Microsoft.Maui
 {
     public static class VirtualListViewHostBuilderExtensions
     {
-        public static IAppHostBuilder UseVirtualListView(this IAppHostBuilder appHostBuilder)
+        public static MauiAppBuilder UseVirtualListView(this MauiAppBuilder appHostBuilder)
             => appHostBuilder.ConfigureMauiHandlers(handlers =>
-                handlers.AddHandler(typeof(IVirtualListView), typeof(VirtualListViewHandler)));
-    }
+				handlers.AddHandler(typeof(IVirtualListView), typeof(VirtualListViewHandler)));
+	}
 
     public static class ViewExtensions
     {
