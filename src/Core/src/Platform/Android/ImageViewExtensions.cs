@@ -52,7 +52,26 @@ namespace Microsoft.Maui
 			CancellationToken cancellationToken = default)
 		{
 			imageView.Clear();
-			return image.UpdateSourceAsync(imageView, services, (d) => imageView.SetImageDrawable(d), cancellationToken);
+			return image.UpdateSourceAsync(imageView, services, (d) =>
+			{
+				imageView.SetImageDrawable(d);
+
+				// HACK CODE TO FORCE RELAYOUT OF PARENT LAYOUT
+
+				var parent = imageView.Parent;
+
+				while (parent != null && parent is not ViewGroup)
+				{
+					parent = parent.Parent;
+				}
+
+				if (parent is View vg)
+				{
+					vg.Measure(MeasureSpecMode.Exactly.MakeMeasureSpec(vg.MeasuredWidth), MeasureSpecMode.Exactly.MakeMeasureSpec(vg.MeasuredHeight));
+					vg.Layout(vg.Left, vg.Top, vg.Right, vg.Bottom);
+				}
+
+			}, cancellationToken);
 		}
 
 		internal static async Task<IImageSourceServiceResult<Drawable>?> UpdateSourceAsync(
