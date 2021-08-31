@@ -90,7 +90,23 @@ namespace Microsoft.Maui
 				if (applied)
 				{
 					setDrawable(drawable);
-					drawable.UpdateIsAnimationPlaying(image);
+
+					imageView.UpdateIsAnimationPlaying(image);
+
+					// HACK CODE TO FORCE RELAYOUT OF PARENT LAYOUT
+
+					var parent = imageView.Parent;
+
+					while (parent != null && parent is not ViewGroup)
+					{
+						parent = parent.Parent;
+					}
+
+					if (parent is View vg)
+					{
+						vg.Measure(MeasureSpecMode.Exactly.MakeMeasureSpec(vg.MeasuredWidth), MeasureSpecMode.Exactly.MakeMeasureSpec(vg.MeasuredHeight));
+						vg.Layout(vg.Left, vg.Top, vg.Right, vg.Bottom);
+					}
 				}
 
 				events?.LoadingCompleted(applied);

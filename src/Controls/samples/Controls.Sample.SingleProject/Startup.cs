@@ -13,7 +13,9 @@ namespace Maui.Controls.Sample.SingleProject
 		{
 			var appBuilder = MauiApp.CreateBuilder();
 			appBuilder
-				.UseMauiApp<MyApp>();
+				.RegisterBlazorMauiWebView()
+				.UseMauiApp<Recipes.App>()
+				.UseVirtualListView();
 
 			if (UseBlazor)
 			{
