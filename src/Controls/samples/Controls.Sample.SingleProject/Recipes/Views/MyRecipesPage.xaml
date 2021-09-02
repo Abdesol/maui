@@ -23,7 +23,7 @@
 			SelectionMode="None">
             <vlv:VirtualListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid RowDefinitions="*, Auto" Margin="20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" SemanticProperties.Description="{Binding RecipeName}">
+                    <Grid RowDefinitions="*, Auto" Padding="0,0,20,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" SemanticProperties.Description="{Binding RecipeName}">
 
                         <Grid.GestureRecognizers>
                             <TapGestureRecognizer Tapped="MyRecipesPage_Tapped" NumberOfTapsRequired="1"  />
