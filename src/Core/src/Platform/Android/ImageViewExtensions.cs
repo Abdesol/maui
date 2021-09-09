@@ -56,20 +56,20 @@ namespace Microsoft.Maui
 			{
 				imageView.SetImageDrawable(d);
 
-				// HACK CODE TO FORCE RELAYOUT OF PARENT LAYOUT
+				//// HACK CODE TO FORCE RELAYOUT OF PARENT LAYOUT
 
-				var parent = imageView.Parent;
+				//var parent = imageView.Parent;
 
-				while (parent != null && parent is not ViewGroup)
-				{
-					parent = parent.Parent;
-				}
+				//while (parent != null && parent is not ViewGroup)
+				//{
+				//	parent = parent.Parent;
+				//}
 
-				if (parent is View vg)
-				{
-					vg.Measure(MeasureSpecMode.Exactly.MakeMeasureSpec(vg.MeasuredWidth), MeasureSpecMode.Exactly.MakeMeasureSpec(vg.MeasuredHeight));
-					vg.Layout(vg.Left, vg.Top, vg.Right, vg.Bottom);
-				}
+				//if (parent is View vg)
+				//{
+				//	vg.Measure(MeasureSpecMode.Exactly.MakeMeasureSpec(vg.MeasuredWidth), MeasureSpecMode.Exactly.MakeMeasureSpec(vg.MeasuredHeight));
+				//	vg.Layout(vg.Left, vg.Top, vg.Right, vg.Bottom);
+				//}
 
 			}, cancellationToken);
 		}
