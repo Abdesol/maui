@@ -31,15 +31,15 @@
 			SelectionMode="None">
             <vlv:VirtualListView.ItemTemplate>
                 <DataTemplate>
-                    <VerticalStackLayout Padding="0,0,0,20" HeightRequest="220" SemanticProperties.Description="{Binding Recipe.RecipeName}">
+                    <Grid RowDefinitions="*, Auto" HeightRequest="220" Padding="0,0,0,20" SemanticProperties.Description="{Binding Recipe.RecipeName}">
 
-                        <VerticalStackLayout.GestureRecognizers>
+                        <Grid.GestureRecognizers>
                             <TapGestureRecognizer Tapped="RecipeSearchPage_Tapped" NumberOfTapsRequired="1"  />
-                        </VerticalStackLayout.GestureRecognizers>
+                        </Grid.GestureRecognizers>
 
-                        <Image HeightRequest="150" Source="{Binding Recipe.ImageUrl}" VerticalOptions="FillAndExpand" Aspect="AspectFill"/>
-                        <Label HeightRequest="75" Grid.Row="1"  x:Name="recipeName" Padding="10" Text="{Binding Recipe.RecipeName}" LineBreakMode="WordWrap" MaxLines="3" Style="{DynamicResource ListItemTextStyle}" FontSize="16" VerticalTextAlignment="Center" TextColor="Black" FontAttributes="Bold" BackgroundColor="White"/>
-                    </VerticalStackLayout>
+                        <Image Source="{Binding Recipe.ImageUrl}" VerticalOptions="FillAndExpand" Aspect="AspectFill"/>
+                        <Label Grid.Row="1"  x:Name="recipeName" Padding="10" Text="{Binding Recipe.RecipeName}" LineBreakMode="WordWrap" MaxLines="3" Style="{DynamicResource ListItemTextStyle}" FontSize="16" VerticalTextAlignment="Center" TextColor="Black" FontAttributes="Bold" BackgroundColor="White"/>
+                    </Grid>
                 </DataTemplate>
             </vlv:VirtualListView.ItemTemplate>
         </vlv:VirtualListView>
