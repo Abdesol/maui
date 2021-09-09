@@ -3,6 +3,7 @@ using System;
 using Microsoft.Graphics.Canvas;
 using Microsoft.Maui.Graphics;
 using Microsoft.Maui.Graphics.Win2D;
+using Microsoft.Maui.Handlers;
 using Microsoft.UI.Composition;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Automation;
@@ -74,17 +75,23 @@ namespace Microsoft.Maui
 			nativeView.Opacity = view.Visibility == Visibility.Hidden ? 0 : view.Opacity;
 		}
 
-		public static void UpdateBackground(this FrameworkElement nativeView, IView view)
+		public static void UpdateBackground(this WrapperView nativeView, IBorder border) 
 		{
-			bool hasBorder = false;
-
-			if (view is ILayout layout)
-				hasBorder = layout.Shape != null && layout.Stroke != null;
+			var hasBorder = border.Shape != null && border.Stroke != null;
 
 			if (hasBorder)
-				nativeView?.UpdateBorderBackground(view);
+			{
+				nativeView?.UpdateBorderBackground(border);
+			}
 			else
-				nativeView?.UpdateNativeViewBackground(view);
+			{
+				nativeView?.UpdateNativeViewBackground(border);
+			}
+		}
+
+		public static void UpdateBackground(this FrameworkElement nativeView, IView view)
+		{
+			nativeView?.UpdateNativeViewBackground(view);
 		}
 
 		public static WFlowDirection ToNative(this FlowDirection flowDirection)

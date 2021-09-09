@@ -3,7 +3,7 @@ using System;
 using Microsoft.Maui.Graphics;
 using Microsoft.UI.Xaml.Controls;
 
-namespace Microsoft.Maui
+namespace Microsoft.Maui.Handlers
 {
 	public class ContentPanel : Panel
 	{

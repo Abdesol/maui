@@ -11,9 +11,6 @@ namespace Microsoft.Maui.Handlers
 		FrameworkElement? INativeViewHandler.NativeView => this.GetWrappedNativeView();
 		FrameworkElement? INativeViewHandler.ContainerView => ContainerView;
 
-		protected new FrameworkElement? WrappedNativeView =>
-			(FrameworkElement?)base.WrappedNativeView;
-
 		public new WrapperView? ContainerView
 		{
 			get => (WrapperView?)base.ContainerView;

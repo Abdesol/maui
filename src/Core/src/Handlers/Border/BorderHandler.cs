@@ -51,12 +51,12 @@ namespace Microsoft.Maui.Handlers
 #if WINDOWS
 			handler.UpdateValue(nameof(IViewHandler.ContainerView));
 
-			bool hasBorder = layout.Shape != null && layout.Stroke != null;
+			bool hasBorder = border.Shape != null && border.Stroke != null;
 
  			if(!hasBorder)
- 				((NativeView?)handler.NativeView)?.UpdateBackground(layout);
+ 				((NativeView?)handler.NativeView)?.UpdateBackground(border);
  			else
- 				((WrapperView?)handler.ContainerView)?.UpdateBackground(layout);
+ 				((WrapperView?)handler.ContainerView)?.UpdateBackground(border);
 #endif
 			((NativeView?)handler.NativeView)?.UpdateBackground(border);
 		}
@@ -64,6 +64,8 @@ namespace Microsoft.Maui.Handlers
 		public static void MapStrokeShape(BorderHandler handler, IBorder border)
 		{
 #if WINDOWS
+			handler.UpdateValue(nameof(IViewHandler.ContainerView));
+			((WrapperView?)handler.ContainerView)?.UpdateStrokeShape(border);
 #else
 			((NativeView?)handler.NativeView)?.UpdateStrokeShape(border);
 #endif
@@ -75,7 +77,7 @@ namespace Microsoft.Maui.Handlers
 		{
 #if WINDOWS
 			handler.UpdateValue(nameof(IViewHandler.ContainerView));
-			((WrapperView?)handler.ContainerView)?.UpdateStroke(layout);
+			((WrapperView?)handler.ContainerView)?.UpdateStroke(border);
 #else
 			((NativeView?)handler.NativeView)?.UpdateStroke(border);
 #endif
@@ -86,7 +88,7 @@ namespace Microsoft.Maui.Handlers
 		{
 #if WINDOWS
 			handler.UpdateValue(nameof(IViewHandler.ContainerView));
-			((WrapperView?)handler.ContainerView)?.UpdateStrokeThickness(layout);
+			((WrapperView?)handler.ContainerView)?.UpdateStrokeThickness(border);
 #else
 			((NativeView?)handler.NativeView)?.UpdateStrokeThickness(border);
 #endif
@@ -97,7 +99,7 @@ namespace Microsoft.Maui.Handlers
 		{
 #if WINDOWS
 			handler.UpdateValue(nameof(IViewHandler.ContainerView));
-			((WrapperView?)handler.ContainerView)?.UpdateStrokeLineCap(layout);
+			((WrapperView?)handler.ContainerView)?.UpdateStrokeLineCap(border);
 #else
 			((NativeView?)handler.NativeView)?.UpdateStrokeLineCap(border);
 #endif
@@ -107,7 +109,7 @@ namespace Microsoft.Maui.Handlers
 		{
 #if WINDOWS
 			handler.UpdateValue(nameof(IViewHandler.ContainerView));
-			((WrapperView?)handler.ContainerView)?.UpdateStrokeLineJoin(layout);
+			((WrapperView?)handler.ContainerView)?.UpdateStrokeLineJoin(border);
 #else
 			((NativeView?)handler.NativeView)?.UpdateStrokeLineJoin(border);
 #endif
@@ -117,7 +119,7 @@ namespace Microsoft.Maui.Handlers
 		{
 #if WINDOWS
 			handler.UpdateValue(nameof(IViewHandler.ContainerView));
-			((WrapperView?)handler.ContainerView)?.UpdateStrokeDashPattern(layout);
+			((WrapperView?)handler.ContainerView)?.UpdateStrokeDashPattern(border);
 #else
 			((NativeView?)handler.NativeView)?.UpdateStrokeDashPattern(border);
 #endif
@@ -127,7 +129,7 @@ namespace Microsoft.Maui.Handlers
 		{
 #if WINDOWS
 			handler.UpdateValue(nameof(IViewHandler.ContainerView));
-			((WrapperView?)handler.ContainerView)?.UpdateStrokeDashOffset(layout);
+			((WrapperView?)handler.ContainerView)?.UpdateStrokeDashOffset(border);
 #else
 			((NativeView?)handler.NativeView)?.UpdateStrokeDashOffset(border);
 #endif
@@ -137,7 +139,7 @@ namespace Microsoft.Maui.Handlers
 		{
 #if WINDOWS
 			handler.UpdateValue(nameof(IViewHandler.ContainerView));
-			((WrapperView?)handler.ContainerView)?.UpdateStrokeMiterLimit(layout);
+			((WrapperView?)handler.ContainerView)?.UpdateStrokeMiterLimit(border);
 #else
 			((NativeView?)handler.NativeView)?.UpdateStrokeMiterLimit(border);
 #endif

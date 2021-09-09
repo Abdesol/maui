@@ -81,8 +81,8 @@ namespace Microsoft.Maui.Handlers
 			get
 			{
 #if WINDOWS
-				if(VirtualView is ILayout layout)
-					return layout?.Shape != null || layout?.Stroke != null;
+				if(VirtualView is IBorder border)
+					return border?.Shape != null || border?.Stroke != null;
 				
 				return false;
 #else

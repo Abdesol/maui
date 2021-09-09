@@ -41,16 +41,6 @@ namespace Microsoft.Maui.Handlers
 
 		public static void MapBackground(ILayoutHandler handler, ILayout layout)
 		{
-#if WINDOWS
-			handler.UpdateValue(nameof(IViewHandler.ContainerView));
-
-			bool hasBorder = layout.Shape != null && layout.Stroke != null;
-
- 			if(!hasBorder)
- 				((NativeView?)handler.NativeView)?.UpdateBackground(layout);
- 			else
- 				((WrapperView?)handler.ContainerView)?.UpdateBackground(layout);
-#endif
 			((NativeView?)handler.NativeView)?.UpdateBackground(layout);
 		}
 
