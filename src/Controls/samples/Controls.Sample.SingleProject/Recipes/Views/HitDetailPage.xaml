@@ -13,19 +13,19 @@
         </Grid.RowDefinitions>
         <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="Fill" HorizontalOptions="Fill" Margin="0,0,0,10" BackgroundColor="White">
             <Image Source="{Binding ImageUrl}" VerticalOptions="FillAndExpand" Aspect="AspectFill" IsVisible="{Binding ImageUrlVisible}" />
-            <Label Text="{Binding RecipeName}" FontSize="25" FontAttributes="Bold" IsVisible="{Binding RecipeNameVisible}" TextColor="Black" MaxLines="3" Padding="15,10" BackgroundColor="White"/>
+            <Label Text="{Binding RecipeName}" SemanticProperties.HeadingLevel="Level1" FontSize="25" FontAttributes="Bold" IsVisible="{Binding RecipeNameVisible}" TextColor="Black" MaxLines="3" Padding="15,10" BackgroundColor="White"/>
         </StackLayout>
         <ScrollView Grid.Column="0" Grid.Row="1" Padding="0,5,0,0" BackgroundColor="White">
             <StackLayout>
                 <Frame Background="{StaticResource BlueGradient}" CornerRadius="10" HasShadow="False" Margin="0,5">
                     <StackLayout Margin="2">
-                        <Label Text="Ingredients:" TextDecorations="Underline" FontSize="Medium" TextColor="{StaticResource Primary}"/>
+                        <Label Text="Ingredients:" SemanticProperties.HeadingLevel="Level2" TextDecorations="Underline" FontSize="Medium" TextColor="{StaticResource Primary}"/>
                         <Label Text="{Binding Ingredients}" FontSize="Small" IsVisible="{Binding IngredientsVisible}" TextColor="Black"/>
                     </StackLayout>
                 </Frame>
                 <Frame Background="{StaticResource BlueGradient}" CornerRadius="10" HasShadow="False">
                     <StackLayout Margin="2">
-                        <Label Text="Recipe:" TextDecorations="Underline" FontSize="Medium" TextColor="{StaticResource Primary}"/>
+                        <Label Text="Recipe:" SemanticProperties.HeadingLevel="Level2" TextDecorations="Underline" FontSize="Medium" TextColor="{StaticResource Primary}"/>
                         <Label Text="{Binding RecipeBody}" FontSize="Small" IsVisible="{Binding RecipeBodyVisible}" TextColor="Black"/>
                         <Label FormattedText="{Binding RecipeUrl}" FontSize="Small" IsVisible="{Binding RecipeUrlVisible}" TextColor="Black" AutomationProperties.IsInAccessibleTree="True"/>
                     </StackLayout>
