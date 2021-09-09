@@ -2,20 +2,20 @@
 {
 	public static class StrokeExtensions
 	{
-		public static void UpdateStrokeShape(this object nativeView, ILayout layout) { }
+		public static void UpdateStrokeShape(this object nativeView, IBorder border) { }
 
-		public static void UpdateStroke(this object nativeView, ILayout layout) { }
+		public static void UpdateStroke(this object nativeView, IBorder border) { }
 
-		public static void UpdateStrokeThickness(this object nativeView, ILayout layout) { }
+		public static void UpdateStrokeThickness(this object nativeView, IBorder border) { }
 
-		public static void UpdateStrokeDashPattern(this object nativeView, ILayout layout) { }
+		public static void UpdateStrokeDashPattern(this object nativeView, IBorder border) { }
 		
-		public static void UpdateStrokeDashOffset(this object nativeView, ILayout layout) { }
+		public static void UpdateStrokeDashOffset(this object nativeView, IBorder border) { }
 
-		public static void UpdateStrokeMiterLimit(this object nativeView, ILayout layout) { }
+		public static void UpdateStrokeMiterLimit(this object nativeView, IBorder border) { }
 
-		public static void UpdateStrokeLineCap(this object nativeView, ILayout layout) { }
+		public static void UpdateStrokeLineCap(this object nativeView, IBorder border) { }
 
-		public static void UpdateStrokeLineJoin(this object nativeView, ILayout layout) { }
+		public static void UpdateStrokeLineJoin(this object nativeView, IBorder border) { }
 	}
 }

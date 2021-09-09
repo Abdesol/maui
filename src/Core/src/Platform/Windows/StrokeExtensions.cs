@@ -2,9 +2,9 @@
 {
 	public static class StrokeExtensions
 	{
-		public static void UpdateStrokeShape(this WrapperView nativeView, ILayout layout)
+		public static void UpdateStrokeShape(this WrapperView nativeView, IBorder border)
 		{
-			var shape = layout.Shape;
+			var shape = border.Shape;
 
 			if (shape == null)
 				return;
@@ -12,9 +12,9 @@
 			nativeView.UpdateBorderShape(shape);
 		}
 
-		public static void UpdateStroke(this WrapperView nativeView, ILayout layout)
+		public static void UpdateStroke(this WrapperView nativeView, IBorder border)
 		{
-			var stroke = layout.Stroke;
+			var stroke = border.Stroke;
 
 			if (stroke == null)
 				return;
@@ -22,20 +22,20 @@
 			nativeView.UpdateStroke(stroke);
 		}
 
-		public static void UpdateStrokeThickness(this WrapperView nativeView, ILayout layout)
+		public static void UpdateStrokeThickness(this WrapperView nativeView, IBorder border)
 		{
-			bool hasBorder = layout.Shape != null && layout.Stroke != null;
+			bool hasBorder = border.Shape != null && border.Stroke != null;
 
 			if (!hasBorder)
 				return;
 
-			var strokeThickness = layout.StrokeThickness;
+			var strokeThickness = border.StrokeThickness;
 			nativeView.UpdateStrokeThickness(strokeThickness);
 		}
 
-		public static void UpdateStrokeDashPattern(this WrapperView nativeView, ILayout layout)
+		public static void UpdateStrokeDashPattern(this WrapperView nativeView, IBorder border)
 		{
-			var strokeDashPattern = layout.StrokeDashPattern;
+			var strokeDashPattern = border.StrokeDashPattern;
 
 			if (strokeDashPattern == null)
 				return;
@@ -43,47 +43,47 @@
 			nativeView.UpdateStrokeDashPattern(strokeDashPattern);
 		}
 
-		public static void UpdateStrokeDashOffset(this WrapperView nativeView, ILayout layout)
+		public static void UpdateStrokeDashOffset(this WrapperView nativeView, IBorder border)
 		{
-			bool hasBorder = layout.Shape != null && layout.Stroke != null;
+			bool hasBorder = border.Shape != null && border.Stroke != null;
 
 			if (!hasBorder)
 				return;
 
-			var strokeDashOffset = layout.StrokeDashOffset;
+			var strokeDashOffset = border.StrokeDashOffset;
 			nativeView.UpdateBorderDashOffset(strokeDashOffset);
 		}
 
-		public static void UpdateStrokeMiterLimit(this WrapperView nativeView, ILayout layout)
+		public static void UpdateStrokeMiterLimit(this WrapperView nativeView, IBorder border)
 		{
-			bool hasBorder = layout.Shape != null && layout.Stroke != null;
+			bool hasBorder = border.Shape != null && border.Stroke != null;
 
 			if (!hasBorder)
 				return;
 
-			var strokeMiterLimit = layout.StrokeMiterLimit;
+			var strokeMiterLimit = border.StrokeMiterLimit;
 			nativeView.UpdateStrokeMiterLimit(strokeMiterLimit);
 		}
 
-		public static void UpdateStrokeLineCap(this WrapperView nativeView, ILayout layout) 
+		public static void UpdateStrokeLineCap(this WrapperView nativeView, IBorder border) 
 		{
-			bool hasBorder = layout.Shape != null && layout.Stroke != null;
+			bool hasBorder = border.Shape != null && border.Stroke != null;
 
 			if (!hasBorder)
 				return;
 
-			var strokeLineCap = layout.StrokeLineCap;
+			var strokeLineCap = border.StrokeLineCap;
 			nativeView.UpdateStrokeLineCap(strokeLineCap);
 		}
 
-		public static void UpdateStrokeLineJoin(this WrapperView nativeView, ILayout layout)
+		public static void UpdateStrokeLineJoin(this WrapperView nativeView, IBorder border)
 		{
-			bool hasBorder = layout.Shape != null && layout.Stroke != null;
+			bool hasBorder = border.Shape != null && border.Stroke != null;
 
 			if (!hasBorder)
 				return;
 
-			var strokeLineJoin = layout.StrokeLineJoin;
+			var strokeLineJoin = border.StrokeLineJoin;
 			nativeView.UpdateStrokeLineJoin(strokeLineJoin);
 		}
 	}

@@ -3,6 +3,7 @@ using Android.Views;
 using Android.Widget;
 using AndroidX.Core.View;
 using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Handlers;
 using ALayoutDirection = Android.Views.LayoutDirection;
 using ATextDirection = Android.Views.TextDirection;
 using AView = Android.Views.View;
@@ -40,43 +41,41 @@ namespace Microsoft.Maui
 			};
 		}
 
+		public static void UpdateBackground(this ContentViewGroup nativeView, IBorder border) 
+		{
+			bool hasBorder = border.Shape != null && border.Stroke != null;
+
+			if (hasBorder)
+				nativeView.UpdateMauiDrawable(border);
+		}
+
 		public static void UpdateBackground(this AView nativeView, IView view, Drawable? defaultBackground = null)
 		{
-			if (view is ILayout layout)
+			// Remove previous background gradient if any
+			if (nativeView.Background is MauiDrawable mauiDrawable)
 			{
-				bool hasBorder = layout.Shape != null && layout.Stroke != null;
+				nativeView.Background = null;
+				mauiDrawable.Dispose();
+			}
 
-				if (hasBorder)
-					nativeView.UpdateMauiDrawable(layout);
+			var paint = view.Background;
+
+			if (paint.IsNullOrEmpty())
+			{
+				if (defaultBackground != null)
+					nativeView.Background = defaultBackground;
 			}
 			else
 			{
-				// Remove previous background gradient if any
-				if (nativeView.Background is MauiDrawable mauiDrawable)
+				if (paint is SolidPaint solidPaint)
 				{
-					nativeView.Background = null;
-					mauiDrawable.Dispose();
-				}
-
-				var paint = view.Background;
-
-				if (paint.IsNullOrEmpty())
-				{
-					if (defaultBackground != null)
-						nativeView.Background = defaultBackground;
+					if (solidPaint.Color is Color backgroundColor)
+						nativeView.SetBackgroundColor(backgroundColor.ToNative());
 				}
 				else
 				{
-					if (paint is SolidPaint solidPaint)
-					{
-						if (solidPaint.Color is Color backgroundColor)
-							nativeView.SetBackgroundColor(backgroundColor.ToNative());
-					}
-					else
-					{
-						if (paint!.ToDrawable(nativeView.Context) is Drawable drawable)
-							nativeView.Background = drawable;
-					}
+					if (paint!.ToDrawable(nativeView.Context) is Drawable drawable)
+						nativeView.Background = drawable;
 				}
 			}
 		}

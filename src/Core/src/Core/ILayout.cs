@@ -1,5 +1,4 @@
 using Microsoft.Maui.Graphics;
-using Microsoft.Maui.Layouts;
 
 namespace Microsoft.Maui
 {
@@ -7,7 +6,7 @@ namespace Microsoft.Maui
 	/// Provides the base properties and methods for all Layout elements.
 	/// Use Layout elements to position and size child elements in .NET MAUI applications.
 	/// </summary>
-	public interface ILayout : IView, IContainer, ISafeAreaView, IBorderStroke
+	public interface ILayout : IView, IContainer, ISafeAreaView
 	{
 		/// <summary>
 		/// The space between the outer edge of the ILayout's content area and its children.
