@@ -110,11 +110,17 @@ namespace Microsoft.Maui.Handlers
 
 			public bool OnQueryTextChange(string newText)
 			{
+				if (Handler?.VirtualView != null)
+					Handler.VirtualView.Text = newText;
+
 				return true;
 			}
 
 			public bool OnQueryTextSubmit(string newText)
 			{
+				if (Handler?.VirtualView != null)
+					Handler.VirtualView.Text = newText;
+
 				Handler?.VirtualView?.SearchButtonPressed();
 
 				// TODO: Clear focus
