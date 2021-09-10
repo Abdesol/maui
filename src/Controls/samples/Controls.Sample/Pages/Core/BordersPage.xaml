@@ -20,19 +20,11 @@
             <RowDefinition Height="80" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ScrollView
-            Orientation="Horizontal"
-            HorizontalScrollBarVisibility="Default"
-            VerticalScrollBarVisibility="Never">
-            <Grid
-                Padding="6">
-                <Grid
-                    x:Name="BorderView"
-                    HorizontalOptions="Center"
-                    HeightRequest="50"
-                    WidthRequest="150"/>
-            </Grid>
-        </ScrollView>
+       
+        <Border x:Name="BorderView" Margin="5">
+            <Label Text="Just a Label" FontSize="20"/>
+        </Border>
+
         <ScrollView
             Grid.Row="1">
             <StackLayout>

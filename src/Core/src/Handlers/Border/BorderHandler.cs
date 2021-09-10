@@ -48,101 +48,50 @@ namespace Microsoft.Maui.Handlers
 
 		public static void MapBackground(BorderHandler handler, IBorder border)
 		{
-#if WINDOWS
-			handler.UpdateValue(nameof(IViewHandler.ContainerView));
-
-			bool hasBorder = border.Shape != null && border.Stroke != null;
-
- 			if(!hasBorder)
- 				((NativeView?)handler.NativeView)?.UpdateBackground(border);
- 			else
- 				((WrapperView?)handler.ContainerView)?.UpdateBackground(border);
-#endif
 			((NativeView?)handler.NativeView)?.UpdateBackground(border);
 		}
 
 		public static void MapStrokeShape(BorderHandler handler, IBorder border)
 		{
-#if WINDOWS
-			handler.UpdateValue(nameof(IViewHandler.ContainerView));
-			((WrapperView?)handler.ContainerView)?.UpdateStrokeShape(border);
-#else
 			((NativeView?)handler.NativeView)?.UpdateStrokeShape(border);
-#endif
-
 			MapBackground(handler, border);
 		}
 
 		public static void MapStroke(BorderHandler handler, IBorder border)
 		{
-#if WINDOWS
-			handler.UpdateValue(nameof(IViewHandler.ContainerView));
-			((WrapperView?)handler.ContainerView)?.UpdateStroke(border);
-#else
 			((NativeView?)handler.NativeView)?.UpdateStroke(border);
-#endif
 			MapBackground(handler, border);
 		}
 
 		public static void MapStrokeThickness(BorderHandler handler, IBorder border)
 		{
-#if WINDOWS
-			handler.UpdateValue(nameof(IViewHandler.ContainerView));
-			((WrapperView?)handler.ContainerView)?.UpdateStrokeThickness(border);
-#else
 			((NativeView?)handler.NativeView)?.UpdateStrokeThickness(border);
-#endif
 			MapBackground(handler, border);
 		}
 
 		public static void MapStrokeLineCap(BorderHandler handler, IBorder border)
 		{
-#if WINDOWS
-			handler.UpdateValue(nameof(IViewHandler.ContainerView));
-			((WrapperView?)handler.ContainerView)?.UpdateStrokeLineCap(border);
-#else
 			((NativeView?)handler.NativeView)?.UpdateStrokeLineCap(border);
-#endif
 		}
 
 		public static void MapStrokeLineJoin(BorderHandler handler, IBorder border)
 		{
-#if WINDOWS
-			handler.UpdateValue(nameof(IViewHandler.ContainerView));
-			((WrapperView?)handler.ContainerView)?.UpdateStrokeLineJoin(border);
-#else
 			((NativeView?)handler.NativeView)?.UpdateStrokeLineJoin(border);
-#endif
 		}
 
 		public static void MapStrokeDashPattern(BorderHandler handler, IBorder border)
 		{
-#if WINDOWS
-			handler.UpdateValue(nameof(IViewHandler.ContainerView));
-			((WrapperView?)handler.ContainerView)?.UpdateStrokeDashPattern(border);
-#else
 			((NativeView?)handler.NativeView)?.UpdateStrokeDashPattern(border);
-#endif
 		}
 
 		public static void MapStrokeDashOffset(BorderHandler handler, IBorder border)
 		{
-#if WINDOWS
-			handler.UpdateValue(nameof(IViewHandler.ContainerView));
-			((WrapperView?)handler.ContainerView)?.UpdateStrokeDashOffset(border);
-#else
 			((NativeView?)handler.NativeView)?.UpdateStrokeDashOffset(border);
-#endif
 		}
 
 		public static void MapStrokeMiterLimit(BorderHandler handler, IBorder border)
 		{
-#if WINDOWS
-			handler.UpdateValue(nameof(IViewHandler.ContainerView));
-			((WrapperView?)handler.ContainerView)?.UpdateStrokeMiterLimit(border);
-#else
 			((NativeView?)handler.NativeView)?.UpdateStrokeMiterLimit(border);
-#endif
 		}
 	}
 }

@@ -1,8 +1,10 @@
-﻿namespace Microsoft.Maui
+﻿using Microsoft.Maui.Handlers;
+
+namespace Microsoft.Maui
 {
 	public static class StrokeExtensions
 	{
-		public static void UpdateStrokeShape(this WrapperView nativeView, IBorder border)
+		public static void UpdateStrokeShape(this ContentPanel nativeView, IBorder border)
 		{
 			var shape = border.Shape;
 
@@ -12,7 +14,7 @@
 			nativeView.UpdateBorderShape(shape);
 		}
 
-		public static void UpdateStroke(this WrapperView nativeView, IBorder border)
+		public static void UpdateStroke(this ContentPanel nativeView, IBorder border)
 		{
 			var stroke = border.Stroke;
 
@@ -22,7 +24,7 @@
 			nativeView.UpdateStroke(stroke);
 		}
 
-		public static void UpdateStrokeThickness(this WrapperView nativeView, IBorder border)
+		public static void UpdateStrokeThickness(this ContentPanel nativeView, IBorder border)
 		{
 			bool hasBorder = border.Shape != null && border.Stroke != null;
 
@@ -33,7 +35,7 @@
 			nativeView.UpdateStrokeThickness(strokeThickness);
 		}
 
-		public static void UpdateStrokeDashPattern(this WrapperView nativeView, IBorder border)
+		public static void UpdateStrokeDashPattern(this ContentPanel nativeView, IBorder border)
 		{
 			var strokeDashPattern = border.StrokeDashPattern;
 
@@ -43,7 +45,7 @@
 			nativeView.UpdateStrokeDashPattern(strokeDashPattern);
 		}
 
-		public static void UpdateStrokeDashOffset(this WrapperView nativeView, IBorder border)
+		public static void UpdateStrokeDashOffset(this ContentPanel nativeView, IBorder border)
 		{
 			bool hasBorder = border.Shape != null && border.Stroke != null;
 
@@ -54,7 +56,7 @@
 			nativeView.UpdateBorderDashOffset(strokeDashOffset);
 		}
 
-		public static void UpdateStrokeMiterLimit(this WrapperView nativeView, IBorder border)
+		public static void UpdateStrokeMiterLimit(this ContentPanel nativeView, IBorder border)
 		{
 			bool hasBorder = border.Shape != null && border.Stroke != null;
 
@@ -65,7 +67,7 @@
 			nativeView.UpdateStrokeMiterLimit(strokeMiterLimit);
 		}
 
-		public static void UpdateStrokeLineCap(this WrapperView nativeView, IBorder border) 
+		public static void UpdateStrokeLineCap(this ContentPanel nativeView, IBorder border) 
 		{
 			bool hasBorder = border.Shape != null && border.Stroke != null;
 
@@ -76,7 +78,7 @@
 			nativeView.UpdateStrokeLineCap(strokeLineCap);
 		}
 
-		public static void UpdateStrokeLineJoin(this WrapperView nativeView, IBorder border)
+		public static void UpdateStrokeLineJoin(this ContentPanel nativeView, IBorder border)
 		{
 			bool hasBorder = border.Shape != null && border.Stroke != null;
 

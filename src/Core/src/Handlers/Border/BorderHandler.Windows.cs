@@ -24,6 +24,7 @@ namespace Microsoft.Maui.Handlers
             _ = MauiContext ?? throw new InvalidOperationException($"{nameof(MauiContext)} should have been set by base class.");
 
             NativeView.Children.Clear();
+			NativeView.EnsureBorderPath();
 
             if (VirtualView.PresentedContent is IView view)
                 NativeView.Children.Add(view.ToNative(MauiContext));
