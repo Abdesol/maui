@@ -21,6 +21,7 @@ namespace Microsoft.Maui.Controls.Xaml.UnitTests
 			public void SourceInfoIsRelative([Values(false)] bool useCompiledXaml)
 			{
 				var page = new Maui2418(useCompiledXaml);
+				Assert.That(page, Is.NotNull);
 				var label0 = page.label0;
 				var sourceInfo = Xaml.Diagnostics.VisualDiagnostics.GetXamlSourceInfo(label0);
 				Assert.That(sourceInfo.SourceUri.OriginalString, Is.EqualTo("Issues/Maui2418.xaml;assembly=Microsoft.Maui.Controls.Xaml.UnitTests"));
